@@ -2,13 +2,16 @@
 #include <stdlib.h>
 #include "board.h"
 
+//non-exported weak attribute definition
 __attribute__((weak)) void startup_handler_dummy(void) {
 	//while(1) {};
 	printf("[%s][%s]Entry (NO OVERRIDE HANLDER COMES HERE)\n", __FILE__, __func__);
 }
 
+//weak and alias attribute declaration
 void startup_handler_dummy_impl(void) __attribute__((weak, alias("startup_handler_dummy")));
 
+//exported weak attribute definition
 __attribute__((weak)) void startup_handler(void) {
 	startup_handler_dummy_impl();
 }

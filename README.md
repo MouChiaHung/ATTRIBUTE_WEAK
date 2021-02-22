@@ -1,4 +1,4 @@
-# Implement C override mechanism using __attribute__ weak and alias
+# C override mechanism using attribute weak
 
 1.Run `make OVERRIDE=0` for calling no override handler.
 
